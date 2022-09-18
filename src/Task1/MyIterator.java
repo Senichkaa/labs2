@@ -1,11 +1,11 @@
 package Task1;
 
 import java.util.Iterator;
-class MyIterator implements Iterator {
+class MyIterator implements Iterator<Integer> {
         private int index = 0;
-        private Queue ownQueue;
+        private final Queue ownQueue;
 
-    public MyIterator(Queue ownQueue) {
+    public MyIterator(final Queue ownQueue) {
         this.ownQueue = ownQueue;
     }
 
@@ -15,7 +15,7 @@ class MyIterator implements Iterator {
         }
 
         @Override
-        public Object next() {
+        public Integer next() {
             return ownQueue.getDataByIndex(index++);
         }
 }

@@ -2,14 +2,14 @@ package Task1;
 
 import java.util.Iterator;
 
-public class Queue implements Iterable {
-    Node front;
-    Node rear;
-    int Size;
+public class Queue implements Iterable<Integer> {
+    private Node front;
+    private Node rear;
+    private int size;
 
     Queue() {
         front = rear = null;
-        Size = 0;
+        size = 0;
     }
 
     boolean isEmpty() {
@@ -17,46 +17,33 @@ public class Queue implements Iterable {
     }
 
     int size() {
-        return Size;
+        return size;
     }
 
-    void insertFront(int data) {
-        Node newNode = new Node(data);
-
-        if (newNode == null)
-            System.out.print("OverFlow\n");
-        else {
-
-            if (front == null)
+    void insertFront(final int data) {
+       final Node newNode = new Node(data);
+            if (front == null) {
                 rear = front = newNode;
-
+            }
             else {
                 newNode.next = front;
                 front.previous = newNode;
                 front = newNode;
             }
-
-            Size++;
-        }
+            size++;
     }
 
-    void insertRear(int data) {
-        Node newNode = new Node(data);
-
-        if (newNode == null)
-            System.out.print("OverFlow\n");
-        else {
+    void insertRear(final int data) {
+       final Node newNode = new Node(data);
             if (rear == null)
                 front = rear = newNode;
-
             else {
                 newNode.previous = rear;
                 rear.next = newNode;
                 rear = newNode;
             }
-            Size++;
+            size++;
         }
-    }
 
     void deleteFront() {
 
@@ -64,7 +51,7 @@ public class Queue implements Iterable {
             System.out.print("UnderFlow\n");
 
         else {
-            Node temp = front;
+          final Node temp = front;
             front = front.next;
 
             if (front == null)
@@ -72,7 +59,7 @@ public class Queue implements Iterable {
             else
                 front.previous = null;
 
-            Size--;
+            size--;
         }
     }
 
@@ -82,7 +69,7 @@ public class Queue implements Iterable {
             System.out.print("UnderFlow\n");
 
         else {
-            Node temp = rear;
+           final Node temp = rear;
             rear = rear.previous;
 
             if (rear == null)
@@ -90,7 +77,7 @@ public class Queue implements Iterable {
             else
                 rear.next = null;
 
-            Size--;
+            size--;
         }
     }
 
@@ -107,18 +94,13 @@ public class Queue implements Iterable {
             return -1;
         return rear.data;
     }
-
-
     void erase() {
-        rear = null;
-        while (front != null) {
-            Node temp = front;
-            front = front.next;
-        }
-        Size = 0;
+        front = rear = null;
+        size = 0;
     }
+
     public int getDataByIndex(final int index) {
-        if (!(index >= 0 && index < Size)) {
+        if (!(index >= 0 && index < size)) {
             throw new IndexOutOfBoundsException();
         }
         Node x = front;
@@ -127,7 +109,7 @@ public class Queue implements Iterable {
         return x.data;
     }
     @Override
-    public Iterator iterator() {
+    public Iterator<Integer> iterator() {
         return new MyIterator(this);
     }
 }

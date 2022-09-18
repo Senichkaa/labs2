@@ -1,8 +1,8 @@
 package Task1;
 
 public class Task1 {
-    public static void main(String[] args) {
-        Queue dq = new Queue();
+    public static void main(final String[] args) {
+       final  Queue dq = new Queue();
 
         dq.insertRear(2);
         dq.insertRear(3);
@@ -22,5 +22,9 @@ public class Task1 {
         dq.deleteFront();
         System.out.print("Delete front element " + "\n");
         System.out.print("New front element after deleting: " + dq.getFront() + "\n");
+
+        for (final int element:dq) {
+            System.out.println(element);
+        }
     }
 }

@@ -30,13 +30,9 @@ public class University {
 
     @Override
     public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append(nameOfUniversity);
-        builder.append(":\n");
-        for (final Group group :
-                groups) {
-            builder.append(group).append('\n');
-        }
-        return builder.toString();
+        return "University{" +
+                "nameOfUniversity='" + nameOfUniversity + '\'' +
+                ", groups=" + groups +
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 package Task2;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Group {
     private String nameOfGroup;
@@ -38,12 +39,24 @@ public class Group {
     }
 
     @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Group group = (Group) o;
+        return Objects.equals(nameOfGroup, group.nameOfGroup) && Objects.equals(students, group.students) && Objects.equals(subjects, group.subjects);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameOfGroup, students, subjects);
+    }
+
+    @Override
     public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append(nameOfGroup).append('\n');
-        for (final Subjects subject : subjects) {
-            builder.append(subject).append('\n');
-        }
-        return builder.toString();
+        return "Group{" +
+                "nameOfGroup='" + nameOfGroup + '\'' +
+                ", students=" + students +
+                ", subjects=" + subjects +
+                '}';
     }
 }

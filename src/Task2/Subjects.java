@@ -41,15 +41,10 @@ public class Subjects {
 
     @Override
     public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append(nameOfSubject).append(" marks:\n");
-        for (final Map.Entry<Student, Integer> item : marksOfStudent.entrySet()) {
-            builder.append(item.getKey()).append(" = ").append(item.getValue()).append("/100").append('\n');
-        }
-        builder.append(nameOfSubject).append(" meetings:\n");
-        for (final LocalDate date : date) {
-            builder.append(date).append('\n');
-        }
-        return builder.toString();
+        return "Subjects{" +
+                "nameOfSubject='" + nameOfSubject + '\'' +
+                ", marksOfStudent=" + marksOfStudent +
+                ", date=" + date +
+                '}';
     }
 }

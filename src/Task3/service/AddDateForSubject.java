@@ -15,10 +15,12 @@ public class AddDateForSubject {
             }
         }
     }
+
     public static void addDate(final Group group, final String subjectName, final String date) {
         final Subjects subjectByName = getSubjectByName(group, subjectName);
         subjectByName.getDate().add(LocalDate.parse(date));
     }
+
     public static Subjects getSubjectByName(final Group group, final String subjectName) {
         for (final Subjects subjects : group.getSubjects()) {
             if (subjects.getNameOfSubject().equals(subjectName)) {

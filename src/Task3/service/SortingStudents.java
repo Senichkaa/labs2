@@ -8,10 +8,12 @@ import java.util.List;
 
 public class SortingStudents {
     final private University university;
+
     public SortingStudents(final University university) {
         this.university = university;
     }
-    public void outputStudentsByAlphabet(final String nameOfGroup){
+
+    public void outputStudentsByAlphabet(final String nameOfGroup) {
         final List<Student> students = university.getGroups().stream().filter(
                 group -> group.getNameOfGroup().equals(nameOfGroup)
         ).findFirst().get().getStudents();

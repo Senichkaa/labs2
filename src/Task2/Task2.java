@@ -37,7 +37,7 @@ public class Task2 {
                     put(studentsOfGroup.get(0), 77);
                     put(studentsOfGroup.get(1), 98);
                     put(studentsOfGroup.get(2), 88);
-                    put(studentsOfGroup.get(3), 66);
+                    put(studentsOfGroup.get(3), 99);
                 }}, Stream.of(
                         LocalDate.of(2022, 9, 2),
                         LocalDate.of(2022, 9, 13)

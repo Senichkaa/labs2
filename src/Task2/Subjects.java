@@ -21,7 +21,7 @@ public class Subjects {
         return marksOfStudent;
     }
 
-    public void SetMarksOfStudent(final Map<Student, Integer> marksOfStudent) {
+    public void setMarksOfStudent(final Map<Student, Integer> marksOfStudent) {
         this.marksOfStudent = marksOfStudent;
     }
 
